@@ -147,7 +147,7 @@ def report(year, month, output=None):
 
     worksheet.merge_range(
         20 + day, 7, 20 + day + 1, 9,
-        " Prof. B.M. Kalra%s (Dean Library Resources)" % sep, footer_format
+        " Air Cmde P. Singh%s (Dean Library Resources)" % sep, footer_format
     )
     workbook.close()
     return workbook
