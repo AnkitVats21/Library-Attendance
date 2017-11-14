@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import FormView, RedirectView
 from django.http import HttpResponse
-
+import re
 from braces.views import LoginRequiredMixin, AnonymousRequiredMixin
 
 from .forms import LoginForm, AttendanceForm
@@ -21,7 +21,7 @@ class AttendanceView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         student_number = form.cleaned_data['student_number'].strip()
-        if len(student_number) > 12 or len(student_number) < 3:
+        if re.match('([0-9]{7}[dmlDML]?|[fsFS][0-9]{3})(?![\w])',student_number) is None:
             messages.add_message(self.request, messages.INFO, student_number +
                                  ' is not a valid student number')
             return redirect(self.success_url)
