@@ -21,7 +21,7 @@ class AttendanceView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         student_number = form.cleaned_data['student_number'].strip()
-        if re.match('([0-9]{7}[dmlDML]?|[fsFS][0-9]{3})(?![\w])',student_number) is None:
+        if re.match('^([0-9]{7}[dmlDML]?|[fsFS][0-9]{3})(?![\w])$',student_number) is None:
             messages.add_message(self.request, messages.INFO, student_number +
                                  ' is not a valid student number')
             return redirect(self.success_url)
