@@ -11,7 +11,7 @@ class Room(models.Model):
 
 
 class Attendance(models.Model):
-    room = models.ForeignKey('Room')
+    room = models.ForeignKey('Room', on_delete=models.CASCADE)
     entry_datetime = models.DateTimeField(auto_now=True)
     entry_time = models.TimeField(auto_now=True)
     exit_datetime = models.DateTimeField(null=True, default=None)

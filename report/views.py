@@ -29,6 +29,8 @@ class AdminView(FormView):
             context['login'] = False
         else:
             context['login'] = True
+        context['login'] = True
+        print(context['login'])
         return self.render_to_response(context)
 
     def form_valid(self, form):

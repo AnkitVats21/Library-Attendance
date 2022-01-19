@@ -3,7 +3,7 @@ from io import BytesIO
 from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.views.generic import FormView, RedirectView
 from django.http import HttpResponse
 import re
